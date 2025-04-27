@@ -3,31 +3,14 @@ import { Link } from "react-scroll";
 import "./Home.css";
 
 const Home = () => {
-  const sectionStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    backgroundColor: "#f4f4f4",
-  };
-
-  const buttonStyle = {
-    margin: "0 10px",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    color: "white",
-    textDecoration: "none",
-    cursor: "pointer",
-  };
-
   return (
-    <section id="etusivu" style={sectionStyle}>
+    <section id="etusivu" className="hero-section">
       <div className="home-content">
-        <h1>Tervetuloa Yrittäjän Palveluihin</h1>
-        <p>
-          Tarjoamme asiantuntevia palveluita yrittäjille. Autamme sinua
-          menestymään liiketoiminnassasi.
+        <h1>Ammattitaitoista Siivouspalvelua Sinun Tarpeisiisi</h1>
+        <p className="tagline">
+          Luotettava ja tehokas siivouspalvelu yrityksille ja
+          yksityishenkilöille. Jätä siivous meidän huoleksemme, niin voit
+          keskittyä olennaiseen.
         </p>
 
         <div className="button-group">
@@ -35,18 +18,18 @@ const Home = () => {
             to="kalenteri"
             smooth={true}
             duration={500}
-            style={{ ...buttonStyle, backgroundColor: "#3B82F6" }}
+            className="button primary-button"
           >
-            Klikkaa tästä varauskalenteriin!
+            Varauskalenteri
           </Link>
 
           <Link
-            to="yrittaja"
+            to="yhteys"
             smooth={true}
             duration={500}
-            style={{ ...buttonStyle, backgroundColor: "#10B981" }}
+            className="button secondary-button"
           >
-            Lue Lisää
+            Ota yhteyttä
           </Link>
         </div>
       </div>

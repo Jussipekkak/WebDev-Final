@@ -93,12 +93,14 @@ const Contact = () => {
             </div>
             <div className="contact-detail">
               <span className="contact-label">Sähköposti: </span>
-              <span className="contact-value">minna.meikalainen@yritys.fi</span>
+              <span className="contact-value">
+                minna.meikalainen@kotipuhtaaksi.fi
+              </span>
             </div>
             <div className="contact-detail">
               <span className="contact-label">Osoite: </span>
               <span className="contact-value">
-                Yrittäjänkatu 10, 00100 Helsinki
+                Yrittäjänkatu 10, 90510 Oulu
               </span>
             </div>
           </div>

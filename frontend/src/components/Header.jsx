@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <header style={headerStyle}>
       <nav className="container">
-        <div style={logoStyle}>Yrittäjän Palvelut</div>
+        <div style={logoStyle}>TMI Koti puhtaaksi</div>
 
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? "✕" : "☰"}

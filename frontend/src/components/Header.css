@@ -1,52 +1,87 @@
+/* Header.css */
+
+header {
+  width: 100%;
+  z-index: 100; /* Korkeampi z-index, jotta pysyy muun sisällön päällä */
+  background-color: #fff; /* Kirkkaan valkoinen tausta */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Hienovaraisempi varjo */
+  padding: 15px 0; /* Lisätään hieman pystysuuntaista tilaa */
+  position: sticky; /* Pysyy ylhäällä vieritettäessä */
+  top: 0;
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.75rem; /* Hieman suurempi logo */
+  font-weight: bold;
+  color: #007bff; /* Moderni sininen väri */
+  text-decoration: none; /* Poistetaan oletuslinkkiviiva */
+}
+
+.menu {
+  display: flex;
+  gap: 30px; /* Lisätään hieman enemmän tilaa linkkien väliin */
+}
+
+.menu-item {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out; /* Pehmeämpi siirtymä */
+  font-size: 1rem; /* Selkeämpi fonttikoko */
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  color: #007bff; /* Sama moderni sininen hover-värinä */
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.75rem; /* Suurempi ikoni mobiilissa */
+  color: #333;
+}
+
+/* Piilotetaan valikko oletuksena pienemmillä näytöillä */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px; /* Säädetään sijaintia headerin korkeuden mukaan */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    align-items: center; /* Keskitetään linkit mobiilivalikossa */
   }
 
-  
-  .menu {
+  .menu.active {
     display: flex;
-    gap: 20px;
   }
-  
+
   .menu-item {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    padding: 10px 0; /* Lisätään pystysuuntaista tilaa mobiilivalikon linkkeihin */
+    width: 100%; /* Linkit täyttävät valikon leveyden */
+    text-align: center; /* Keskitetään teksti */
+    border-bottom: 1px solid #eee; /* Erottaja linkkien väliin */
   }
-  
-  .menu-item:hover {
-    color: #3B82F6;
+
+  .menu-item:last-child {
+    border-bottom: none; /* Viimeiseltä linkiltä poistetaan alaviiva */
   }
-  
+
   .menu-toggle {
-    display: none;
+    display: block;
   }
-  
-  @media (max-width: 768px) {
-    .menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  
-    .menu.active {
-      display: flex;
-    }
-  
-    .menu-toggle {
-      display: block;
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-  }
+}

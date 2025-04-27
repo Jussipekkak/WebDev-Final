@@ -1,48 +1,100 @@
+/* Entrepreneur.css */
+
 .entrepreneur-container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
-    gap: 40px;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; /* Keskitetään kontti vaakasuunnassa */
+  padding: 40px; /* Lisätään hieman sisäistä tilaa */
+  gap: 40px;
+}
+
+.entrepreneur-image {
+  flex: 1;
+}
+
+.entrepreneur-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Hieman voimakkaampi varjo */
+}
+
+.entrepreneur-content {
+  flex: 1;
+}
+
+.entrepreneur-content h2 {
+  font-size: 3rem; /* Suurempi otsikko */
+  color: #2c3e50; /* Tummempi, moderni väri */
+  margin-bottom: 15px;
+  font-weight: 700; /* Paksumpi fontin paino */
+}
+
+.entrepreneur-content h3 {
+  font-size: 1.75rem; /* Hieman suurempi alaotsikko */
+  color: #007bff; /* Kirkas sininen, moderni korostusväri */
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.entrepreneur-content p {
+  color: #555; /* Hieman vaaleampi tekstin väri */
+  margin-bottom: 25px;
+  line-height: 1.7; /* Parantaa luettavuutta */
+  font-size: 1.1rem;
+}
+
+.entrepreneur-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.entrepreneur-content li {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.1rem;
+  display: flex; /* Asetetaan listaelementit flex-kontiksi */
+  align-items: center; /* Keskitetään kuvake ja teksti pystysuunnassa */
+}
+
+.entrepreneur-content li::before {
+  content: "✓"; /* Lisätään tyylitelty tarkistusmerkki */
+  display: inline-block;
+  margin-right: 10px;
+  color: #28a745; /* Vihreä väri tarkistusmerkille */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .entrepreneur-container {
+    padding: 30px;
+    gap: 30px;
   }
-  
-  .entrepreneur-image {
-    flex: 1;
-  }
-  
-  .entrepreneur-content {
-    flex: 1;
-  }
-  
+
   .entrepreneur-content h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 2.75rem;
   }
-  
+
   .entrepreneur-content h3 {
-    font-size: 1.5rem;
-    color: #3B82F6;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
   }
-  
-  .entrepreneur-content p {
-    color: #666;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .entrepreneur-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 30px;
   }
-  
-  .entrepreneur-content ul {
-    list-style-type: none;
-    padding: 0;
+
+  .entrepreneur-image {
+    max-width: 80%; /* Kuva voi olla leveämpi pienemmillä näytöillä */
+    margin-bottom: 30px;
   }
-  
-  .entrepreneur-content li {
-    margin-bottom: 10px;
-    color: #333;
+
+  .entrepreneur-content {
+    text-align: left; /* Palautetaan tekstin linjaus vasemmalle pienemmillä näytöillä, jos se näyttää paremmalta */
   }
-  
-  @media (max-width: 768px) {
-    .entrepreneur-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
+}

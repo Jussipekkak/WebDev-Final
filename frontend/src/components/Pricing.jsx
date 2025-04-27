@@ -7,39 +7,44 @@ const Pricing = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#f4f4f4",
-    padding: "20px",
+    backgroundColor: "#f9f9f9",
+    padding: "40px",
   };
 
   const pricingPlans = [
     {
-      title: "Peruspalvelu",
-      price: "150€",
+      title: "Perussiivous",
+      price: "alkaen 80€",
       features: [
-        "Tunnin konsultaatio",
-        "Perustason yritysanalyysi",
-        "Sähköpostituki",
+        "Pölyjen pyyhintä kaikilta pinnoilta",
+        "Imurointi ja moppaus",
+        "Keittiön työtasojen ja altaan puhdistus",
+        "WC:n ja kylpyhuoneen peruspuhdistus",
+        "Ikkunoiden ulkopintojen pyyhintä (sään salliessa)",
       ],
     },
     {
-      title: "Laaja Konsultointi",
-      price: "350€",
+      title: "Laaja Siivous",
+      price: "alkaen 150€",
       features: [
-        "3h strategiatyöpaja",
-        "Yksityiskohtainen liiketoiminta-analyysi",
-        "Jatkuva tuki 1kk",
-        "Kehityssuunnitelma",
+        "Kaikki perussiivouksen toimenpiteet",
+        "Lattioiden perusteellisempi pesu",
+        "Keittiön kaappien ulkopintojen puhdistus",
+        "Uunin ja mikron puhdistus (sisältä ja ulkoa)",
+        "Kylpyhuoneen kaakeleiden pesu",
+        "Listojen ja jalkalistojen pyyhintä",
       ],
     },
     {
-      title: "Premium-palvelu",
-      price: "750€",
+      title: "Erikoissiivous",
+      price: "Pyydä Tarjous",
       features: [
-        "1 päivän intensiivikonsultointi",
-        "Kattava liiketoiminnan arviointi",
-        "Räätälöity kehityssuunnitelma",
-        "Jatkuva kuukausituki",
-        "Verkostoitumisapu",
+        "Muutto- ja loppusiivoukset",
+        "Suursiivoukset",
+        "Ikkunoiden pesu (sisältä ja ulkoa)",
+        "Tekstiilipesu (matot, sohvat jne.)",
+        "Vahaus ja öljyäminen",
+        "Desinfiointisiivoukset",
       ],
     },
   ];
@@ -48,20 +53,16 @@ const Pricing = () => {
     <section id="hinnasto" style={sectionStyle}>
       <div className="pricing-container">
         <h2>Hinnasto</h2>
-
         <div className="pricing-grid">
           {pricingPlans.map((plan, index) => (
             <div key={index} className="pricing-card">
               <h3>{plan.title}</h3>
               <div className="price">{plan.price}</div>
-
               <ul>
                 {plan.features.map((feature, idx) => (
                   <li key={idx}>{feature}</li>
                 ))}
               </ul>
-
-              <button>Valitse Paketti</button>
             </div>
           ))}
         </div>

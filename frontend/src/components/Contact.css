@@ -1,73 +1,120 @@
+/* Contact.css */
+
+.contact-section {
+  display: flex;
+  flex-direction: column; /* Asetetaan sisältö pystysuuntaan oletuksena */
+  align-items: center;
+  padding: 40px 20px; /* Lisätään sivuttaista tilaa pienemmillä näytöillä */
+  background-color: #f9f9f9; /* Vaalea tausta */
+}
+
 .contact-container {
   padding-top: 30px;
-    max-width: 1000px;
-    width: 100%;
-  }
-  
-  .contact-container h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-  }
-  
+  max-width: 1000px;
+  width: 100%;
+}
+
+.contact-container h2 {
+  text-align: center;
+  font-size: 2.75rem; /* Hieman suurempi otsikko */
+  margin-bottom: 50px; /* Lisätään tilaa otsikon alle */
+  color: #333;
+  font-weight: 700; /* Paksumpi fontin paino */
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsiivisempi sarakkeiden hallinta */
+  gap: 40px; /* Lisätään hieman enemmän tilaa sarakkeiden väliin */
+  background-color: white;
+  padding: 50px; /* Lisätään sisäistä tilaa */
+  border-radius: 12px; /* Pyöristetymmät reunat */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Hieman voimakkaampi varjo */
+}
+
+.contact-info {
+  background-color: #e9ecef; /* Vaaleampi tausta */
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.contact-info h3 {
+  color: #007bff; /* Modernimpi sininen väri */
+  margin-bottom: 25px;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.6; /* Parantaa luettavuutta */
+  font-size: 1.05rem;
+}
+
+.contact-form h3 {
+  color: #007bff; /* Sama moderni sininen väri */
+  margin-bottom: 25px;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.contact-form label {
+  display: block; /* Asettetaan labelit omille riveilleen */
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px; /* Hieman enemmän paddingia */
+  margin-bottom: 20px; /* Lisätään tilaa elementtien väliin */
+  border: 1px solid #ced4da; /* Hieman tummempi reunaviiva */
+  border-radius: 8px; /* Pyöristetymmät kulmat */
+  font-size: 1rem;
+  color: #495057;
+  box-sizing: border-box; /* Estää paddingin ja borderin leveyden kasvattamisen */
+}
+
+.contact-form textarea {
+  min-height: 120px; /* Lisätään hieman oletuskorkeutta */
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 14px; /* Hieman enemmän paddingia */
+  background-color: #007bff; /* Sama moderni sininen väri */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Pyöristetymmät kulmat */
+  cursor: pointer;
+  font-size: 1.1rem; /* Hieman suurempi fonttikoko */
+  transition: background-color 0.3s ease; /* Lisätään pehmeä siirtymä */
+}
+
+.contact-form button:hover {
+  background-color: #0056b3; /* Tummempi sininen hover-efektinä */
+}
+
+/* Responsiivisuus */
+@media (max-width: 768px) {
   .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    grid-template-columns: 1fr; /* Yksi sarake pienemmillä näytöillä */
   }
-  
+
   .contact-info {
-    background-color: #F3F4F6;
-    padding: 30px;
-    border-radius: 10px;
+    margin-bottom: 30px; /* Lisätään tilaa yhteystietojen alle */
   }
-  
-  .contact-info h3 {
-    color: #3B82F6;
-    margin-bottom: 20px;
+
+  .contact-container h2 {
+    font-size: 2.2rem; /* Pienempi otsikko mobiilissa */
+    margin-bottom: 40px;
   }
-  
-  .contact-info p {
-    margin-bottom: 10px;
-    color: #666;
+
+  .contact-content {
+    padding: 30px; /* Vähennetään sisäistä tilaa mobiilissa */
   }
-  
-  .contact-form h3 {
-    color: #3B82F6;
-    margin-bottom: 20px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .contact-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #3B82F6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .contact-form button:hover {
-    background-color: #2563EB;
-  }
-  
-  @media (max-width: 768px) {
-    .contact-content {
-      grid-template-columns: 1fr;
-    }
-  }
+}
