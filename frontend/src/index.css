@@ -182,16 +182,6 @@ button:focus-visible {
   }
 }
 
-/* Erittäin suuret näytöt */
-@media (min-width: 1200px) {
-  :root {
-    font-size: 20px;
-  }
-  
-  .container {
-    max-width: 1400px;
-  }
-}
 
 /* Vaakanäyttö mobiililaitteilla */
 @media (max-height: 500px) and (orientation: landscape) {
