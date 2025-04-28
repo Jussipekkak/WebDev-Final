@@ -41,13 +41,16 @@ const Contact = () => {
 
     try {
       // Lähetetään lomakkeen tiedot backendille
-      const response = await fetch("http://localhost:8080/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://webdev-final-407162888335.europe-north1.run.app//send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
