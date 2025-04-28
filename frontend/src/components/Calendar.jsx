@@ -67,7 +67,7 @@ const BookingSystem = () => {
       };
 
       const response = await fetch(
-        "https://webdev-final-407162888335.europe-north1.run.app//bookings",
+        "https://webdev-final-407162888335.europe-north1.run.app/bookings",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

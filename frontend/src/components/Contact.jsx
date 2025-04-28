@@ -42,7 +42,7 @@ const Contact = () => {
     try {
       // Lähetetään lomakkeen tiedot backendille
       const response = await fetch(
-        "https://webdev-final-407162888335.europe-north1.run.app//send-email",
+        "https://webdev-final-407162888335.europe-north1.run.app/send-email",
         {
           method: "POST",
           headers: {
