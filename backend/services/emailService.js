@@ -38,7 +38,7 @@ async function sendContactEmail(name, email, message) {
 async function sendBookingNotification(bookingData) {
   try {
     const info = await transporter.sendMail({
-      from: `"Varausjärjestelmä" <${process.env.CONTACT_EMAIL}>`,
+      from: `"Varausjärjestelmä" <${"test@demomailtrap.co"}>`,
       to: "jussikarhumaa@gmail.com",
       subject: `Uusi varaus: ${bookingData.customerName || "Asiakas"}`,
       text: `
