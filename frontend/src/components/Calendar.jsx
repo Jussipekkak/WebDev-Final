@@ -34,7 +34,9 @@ const BookingSystem = () => {
     const fetchBookings = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8080/bookings");
+        const response = await fetch(
+          "https://webdev-final-407162888335.europe-north1.run.app/bookings"
+        );
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
         const data = await response.json();
         setBookings(data);
