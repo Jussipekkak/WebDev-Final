@@ -2,41 +2,82 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  
-
+  font-size: 16px; /* Perus fonttikoko, jota voidaan suhteuttaa rem-yksiköillä */
+ 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Lisätään muuttujat väreille helpompaa hallintaa varten */
+  --primary-color: #646cff;
+  --primary-hover: #535bf2;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --bg-color-dark: #242424;
+  --text-color-light: #213547;
+  --bg-color-light: #ffffff;
+  --button-bg-dark: #1a1a1a;
+  --button-bg-light: #f9f9f9;
+}
+
+* {
+  box-sizing: border-box; /* Varmistaa, että padding ei kasvata elementtien kokoa */
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary-color);
   text-decoration: inherit;
+  transition: color 0.3s ease;
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--primary-hover);
 }
 
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  place-items: center;
+  flex-direction: column; /* Muutettu column suuntaan parempaa responsiivisuutta varten */
+  align-items: center; /* Keskitetään sisältö vaakasuunnassa */
   min-width: 320px;
   min-height: 100vh;
-  padding: 0;
+  padding: 1rem; /* Lisätään padding reunoille */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5rem; /* Pienempi oletuskoko, joka kasvaa näytön koon mukaan */
   line-height: 1.1;
+  margin-bottom: 1rem;
+  text-align: center;
+  word-break: break-word; /* Estää pitkien sanojen valumisen ulos */
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  word-break: break-word;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 button {
@@ -46,27 +87,177 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg-dark);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.25s ease;
+  margin: 0.5rem 0;
+  min-width: 120px; /* Varmistaa minimikoon */
+  touch-action: manipulation; /* Parantaa kosketusnäytön toimivuutta */
 }
 
+button:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px); /* Pieni hover-animaatio */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0); /* Palautus painettaessa */
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--primary-hover);
+  outline-offset: 1px;
+}
+
+/* Yleisiä utility-luokkia */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 2rem 0;
+  width: 100%;
+}
+
+/* Responsiivinen grid-järjestelmä */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+/* Pienemmät mobiililaitteet */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px; /* Pienempi peruskoko */
+  }
+  
+  body {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  button {
+    width: 100%; /* Täysi leveys pienillä näytöillä */
+    padding: 0.75em 1em;
+  }
+}
+
+/* Tabletit ja suuremmat mobiililaitteet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Suuremmat näytöt */
+@media (min-width: 769px) {
+  :root {
+    font-size: 18px; /* Suurempi peruskoko */
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  h1 {
+    font-size: 3.2rem;
+  }
+  
+  body {
+    padding: 1.5rem;
+  }
+}
+
+/* Erittäin suuret näytöt */
+@media (min-width: 1200px) {
+  :root {
+    font-size: 20px;
+  }
+  
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Vaakanäyttö mobiililaitteilla */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Tummasta vaaleaan teemaan siirtyminen */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--text-color-light);
+    background-color: var(--bg-color-light);
   }
+  
   a:hover {
     color: #747bff;
   }
+  
   button {
-    background-color: #f9f9f9;
+    background-color: var(--button-bg-light);
   }
+}
+
+/* Käyttäjän ruudun kontrasti-asetukset */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color-dark: white;
+    --bg-color-dark: black;
+    --text-color-light: black;
+    --bg-color-light: white;
+    --primary-color: #1a0dff;
+    --primary-hover: #0900ff;
+  }
+  
+  a, button {
+    text-decoration: underline; /* Parempi saavutettavuus */
+  }
+}
+
+/* Vähentää liikettä käyttäjille, jotka preferoivat vähemmän animaatioita */
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  button:hover {
+    transform: none;
+  }
+}
+
+/* Tuki näytönlukijalle */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

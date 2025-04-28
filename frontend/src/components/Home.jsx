@@ -18,6 +18,7 @@ const Home = () => {
             to="kalenteri"
             smooth={true}
             duration={500}
+            offset={-100}
             className="button primary-button"
           >
             Varauskalenteri
@@ -27,6 +28,7 @@ const Home = () => {
             to="yhteys"
             smooth={true}
             duration={500}
+            offset={-100}
             className="button secondary-button"
           >
             Ota yhteyttä

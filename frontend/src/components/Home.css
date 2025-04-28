@@ -1,4 +1,3 @@
-
 /* Pääosio */
 .hero-section {
   min-height: 100vh;
@@ -7,99 +6,156 @@
   justify-content: center;
   text-align: center;
   background-color: #f9f9f9; /* Vaalea tausta */
-  padding: 2rem;
+  padding: 1rem; /* Pienempi padding kaikissa näytöissä */
   background-image: url('bgimg.png'); /* Vaihda oman kuvasi nimeksi */
   background-size: cover;
   background-repeat: no-repeat;
-  /* Voit myös säätää taustakuvan sijaintia tarvittaessa */
   background-position: center center; /* Keskitetään kuva */
+  position: relative; /* Tämä mahdollistaa asemoinnin sisällölle */
 }
 
 /* Sisältöalue */
 .home-content {
   max-width: 800px;
-  padding: 30px; /* Lisätty hieman paddingia */
-  border-radius: 10px; /* Pehmeät kulmat */
+  width: 100%; /* Varmistaa että sisältö täyttää käytettävissä olevan tilan */
+  padding: 20px; /* Pienempi padding oletuksena */
+  border-radius: 8px; /* Pienempi pyöristys */
+  background-color: rgba(255, 255, 255, 0.9); /* Hieman läpinäkyvä tausta */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Varjo erottumaan taustasta */
+  box-sizing: border-box; /* Varmistaa että padding sisältyy leveyteen */
 }
 
 /* Pääotsikko */
 .home-content h1 {
-  font-size: 3.5rem; /* Hieman suurempi otsikko */
-  margin-bottom: 25px;
-  color: 222831; /* Tummempi, moderni väri */
-  font-weight: 700; /* Paksumpi fontin paino */
-  line-height: 1.2; /* Parantaa luettavuutta */
+  font-size: 2.5rem; /* Pienempi oletuskoko */
+  margin-bottom: 20px;
+  color: #222831;
+  font-weight: 700;
+  line-height: 1.2;
+  word-wrap: break-word; /* Estää tekstin valumisen ulos kontista */
 }
 
 /* Alaotsikko/Ingressi */
 .home-content .tagline {
-  font-size: 1.3rem; /* Hieman suurempi teksti */
-  margin-bottom: 40px;
-  color: 393E46;
-  line-height: 1.6; /* Parantaa luettavuutta */
+  font-size: 1.1rem; /* Pienempi oletuskoko */
+  margin-bottom: 30px;
+  color: #393E46;
+  line-height: 1.5;
+  word-wrap: break-word; /* Estää tekstin valumisen ulos kontista */
 }
 
 /* Painikkeiden ryhmä */
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap; /* Sallii painikkeiden rivittymisen */
+  width: 100%; /* Varmistaa että täyttää koko tilan */
 }
 
 /* Yleiset painiketyylit */
 .button {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
+  display: block; /* Muutettu inline-block → block */
+  padding: 12px 15px; /* Kapeampi padding sivuilla */
+  border-radius: 6px;
   color: white;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem; /* Hieman pienempi fontti */
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%; /* Täyttää käytettävissä olevan tilan */
+  max-width: 280px; /* Rajoittaa maksimileveyttä isoilla näytöillä */
+  margin: 0 auto; /* Keskittää painikkeet */
 }
 
 /* Ensisijainen painike (Pyydä Tarjous) */
 .primary-button {
-  background-color: #007bff; /* Kirkas sininen */
+  background-color: #007bff;
 }
 
 .primary-button:hover {
-  background-color: #0056b3; /* Tummempi sininen hover-efektinä */
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
 /* Toissijainen painike (Tutustu Palveluihin) */
 .secondary-button {
-  background-color: #28a745; /* Vihreä */
+  background-color: #28a745;
 }
 
 .secondary-button:hover {
-  background-color: #1e7e34; /* Tummempi vihreä hover-efektinä */
+  background-color: #1e7e34;
+  transform: translateY(-2px);
 }
 
-/* Responsiivisuus pienemmille näytöille */
-@media (max-width: 768px) {
+/* Responsiivisuus isommille näytöille */
+@media (min-width: 769px) {
+  .hero-section {
+    padding: 2rem;
+  }
+  
   .home-content {
-    padding: 20px;
+    padding: 30px;
   }
-
+  
   .home-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 3.5rem;
+    margin-bottom: 25px;
   }
-
+  
   .home-content .tagline {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    font-size: 1.3rem;
+    margin-bottom: 40px;
   }
+  
+  .button-group {
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .button {
+    width: auto; /* Automaattinen leveys isommilla näytöillä */
+    min-width: 180px; /* Vähimmäisleveys */
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
 
+/* Responsiivisuus pienemmille näytöille (mobiililaitteet) */
+@media (max-width: 768px) {
   .button-group {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    width: 100%;
   }
-
+  
   .button {
-    width: 100%; /* Painikkeet täyttävät rivin */
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Erittäin pienet mobiililaitteet */
+@media (max-width: 375px) {
+  .home-content {
+    padding: 15px 10px;
+  }
+  
+  .home-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .home-content .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }

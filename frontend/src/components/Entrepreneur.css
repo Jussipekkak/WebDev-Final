@@ -92,6 +92,7 @@
   .entrepreneur-image {
     max-width: 80%; /* Kuva voi olla leveämpi pienemmillä näytöillä */
     margin-bottom: 30px;
+    display: none;
   }
 
   .entrepreneur-content {

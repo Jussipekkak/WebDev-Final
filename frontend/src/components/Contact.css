@@ -23,7 +23,7 @@
 }
 
 .contact-content {
-  display: grid;
+  
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsiivisempi sarakkeiden hallinta */
   gap: 40px; /* Lisätään hieman enemmän tilaa sarakkeiden väliin */
   background-color: white;
