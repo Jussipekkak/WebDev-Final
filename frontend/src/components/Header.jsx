@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   const menuItems = [
-    { name: "Etusivu", to: "etusivu" },
+    { name: "Eetusivu", to: "etusivu" },
     { name: "Esittely", to: "yrittaja" },
     { name: "Hinnasto", to: "hinnasto" },
     { name: "Kalenteri", to: "kalenteri" },
