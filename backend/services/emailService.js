@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // true for port 465, false for other ports
   auth: {
-    user: "api",
-    pass: "c9b685fc59d0a3303b95f88a0aa49a75",
+    user: process.env.MAILTRAP_USER,
+    pass: process.env.MAILTRAP_PASS,
   },
 });
 
@@ -16,7 +16,7 @@ async function sendContactEmail(name, email, message) {
   try {
     const info = await transporter.sendMail({
       from: `"Yhteydenottolomake" <${"test@demomailtrap.co"}>`,
-      to: "jussikarhumaa@gmail.com", // Vastaanottajan sähköposti
+      to: process.env.ADMIN_EMAIL, // Vastaanottajan sähköposti
       subject: `Uusi yhteydenotto: ${name}`,
       text: `Nimi: ${name}\nSähköposti: ${email}\nViesti: ${message}`,
       html: `
@@ -39,7 +39,7 @@ async function sendBookingNotification(bookingData) {
   try {
     const info = await transporter.sendMail({
       from: `"Varausjärjestelmä" <${"test@demomailtrap.co"}>`,
-      to: "jussikarhumaa@gmail.com",
+      to: process.env.ADMIN_EMAIL,
       subject: `Uusi varaus: ${bookingData.customerName || "Asiakas"}`,
       text: `
         Uusi varaus vastaanotettu!

@@ -34,9 +34,7 @@ const BookingSystem = () => {
     const fetchBookings = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          "https://webdev-final-407162888335.europe-north1.run.app/bookings"
-        );
+        const response = await fetch("/api/bookings");
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
         const data = await response.json();
         setBookings(data);
@@ -68,14 +66,11 @@ const BookingSystem = () => {
         // duration poistettu lähetyksestä
       };
 
-      const response = await fetch(
-        "https://webdev-final-407162888335.europe-north1.run.app/bookings",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(bookingData),
-        }
-      );
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

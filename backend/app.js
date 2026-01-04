@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use("/bookings", bookingRoutes);
-app.use(contactRoutes);
+app.use("/api/bookings", bookingRoutes);
+app.use("/api", contactRoutes);
 
 module.exports = app;
