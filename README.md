@@ -1,6 +1,6 @@
 # WebDev-Final
 
-Siivouspelvelun web-sivusto, jossa on varauskalenteri ja yhteydenottolomake. Backend on Express/MongoDB-palvelu, joka tallentaa varaukset ja lähettää Mailtrapin kautta ilmoituksia.
+Siivouspalvelun web-sivusto, jossa on varauskalenteri ja yhteydenottolomake. Backend on Express/MongoDB-palvelu, joka tallentaa varaukset ja lähettää Mailtrapin kautta ilmoituksia.
 
 Esittely video: https://youtu.be/2Hh4z-gHG6I
 
