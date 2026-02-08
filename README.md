@@ -1,43 +1,43 @@
 # WebDev-Final
 
-Siivouspalvelun web-sivusto, jossa on varauskalenteri ja yhteydenottolomake. Backend on Express/MongoDB-palvelu, joka tallentaa varaukset ja lähettää Mailtrapin kautta ilmoituksia.
+A cleaning service website that includes a booking calendar and a contact form.  
+The backend is an Express/MongoDB service that stores bookings and sends notifications via Mailtrap.
 
-Esittely video: https://youtu.be/2Hh4z-gHG6I
+Demo video: https://youtu.be/2Hh4z-gHG6I
 
-## Sisältö ja rakenne
-- `frontend/`: Vite + React -sovellus 
-- `backend/`: Express API, MongoDB-yhteys, Mailtrap-sähköposti-ilmoitukset.
-- `Dockerfile`: Rakentaa frontendin ja käynnistää backendin samassa kontissa.
+## Content and structure
+- `frontend/`: Vite + React application  
+- `backend/`: Express API, MongoDB connection, Mailtrap email notifications  
+- `Dockerfile`: Builds the frontend and runs the backend in the same container  
 
-## Vaatimukset
-- Node.js >= 18 ja npm
-- MongoDB-tietokanta
-- Mailtrap-tunnukset (tai muu SMTP)
+## Requirements
+- Node.js >= 18 and npm  
+- MongoDB database  
+- Mailtrap credentials (or another SMTP service)  
 
-## Käyttöönotto paikallisesti
-1) Asenna riippuvuudet:
+## Running locally
+1) Install dependencies:
 ```bash
 cd frontend && npm install
 cd ../backend && npm install
 
-2) Aseta ympäristömuuttujat
+2) Set environment variables
 # backend/.env
 PORT=8080
 MONGODB_URI=mongodb+srv://<user>:<pass>@<cluster>/<db>
 MAILTRAP_USER=<user>
 MAILTRAP_PASS=<pass>
 
-3) Käynnistä palvelu
-Käynnistä Docker
+3) Start the service
+Start Docker:
 
 docker build -t webdev-final .
 docker run -p 8080:8080 webdev-final
 
-TAI
+OR
 
 cd backend
 npm start
 
 cd frontend
 npm run dev
-
